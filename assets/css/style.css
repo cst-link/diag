@@ -10,9 +10,10 @@
   color:#111;
 }
 
+/* Базовые настройки */
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--text,#111);line-height:1.5;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--text,#111);line-height:1.45;-webkit-font-smoothing:antialiased}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
 .narrow{max-width:720px}
 img{max-width:100%;display:block}
@@ -50,18 +51,26 @@ img{max-width:100%;display:block}
 
 /* Cards grid */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+
+/* Карточки — явные паддинги, аккуратное выравнивание, подлёт при hover */
 .card{
   background:#fff;
-  padding:16px;
+  padding:18px;                 /* важный момент — достаточный отступ */
   border-radius:var(--radius);
   border:1px solid #eee;
   box-shadow: 0 6px 14px rgba(12,20,30,0.04);
   transition: transform .22s ease, box-shadow .22s ease;
   will-change: transform;
   overflow:visible;
+  display:flex;
+  flex-direction:column;
 }
 
-/* subtle hover lift (as было раньше) */
+/* Заголовки и абзацы внутри карточки — гарантия выравнивания */
+.card h3{margin:0 0 8px;font-size:18px;line-height:1.25}
+.card p{margin:0;color:#333;line-height:1.45;word-break:normal}
+
+/* subtle hover lift (как было ранее) */
 .card:hover{
   transform: translateY(-6px);
   box-shadow: 0 14px 30px rgba(12,20,30,0.08);
@@ -70,20 +79,22 @@ img{max-width:100%;display:block}
 /* Benefits */
 .benefits{padding-left:20px;list-style:inside;}
 
-/* Systems grid - same card behaviour */
+/* Systems grid - применяем такое же поведение как карточкам */
 .systems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
 .system{
   background:#fff;
-  padding:12px;
+  padding:16px;
   border-radius:8px;
   border:1px solid #eee;
   text-align:center;
   box-shadow: 0 6px 12px rgba(12,20,30,0.03);
   transition: transform .22s ease, box-shadow .22s ease;
   will-change: transform;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:64px;
 }
-
-/* enable the same slight lift on systems items */
 .system:hover{
   transform: translateY(-6px);
   box-shadow: 0 12px 24px rgba(12,20,30,0.06);
@@ -107,11 +118,16 @@ img{max-width:100%;display:block}
 .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease-out, transform .6s ease-out;will-change:transform,opacity}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* Respect reduced motion */
+/* Уважать reduced-motion, но не убирать маленький hover-lift полностью.
+   Если хотите — можно вернуть полное отключение движений здесь. */
 @media (prefers-reduced-motion: reduce){
-  .card:hover{ transform:none; }
-  .system:hover{ transform:none; }
-  .reveal{ transition:none; transform:none; opacity:1; }
+  /* Уменьшим переходы и выключим reveal-анимацию, но оставим мягкий эффект hover (можно изменить по запросу) */
+  .reveal{transition:none;transform:none;opacity:1}
+  .card{transition:none}
+  .system{transition:none}
+  /* если вы хотите полностью убрать hover-подлет, раскомментируйте следующую строку:
+  .card:hover, .system:hover { transform: none; box-shadow: 0 6px 14px rgba(12,20,30,0.04); }
+  */
 }
 
 /* Responsive */
