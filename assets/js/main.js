@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
           });
         }
       }).catch(function(){
-        msg.textContent = 'Ошибка сети. Попробуйте позже или напишите на почту.';
+        msg.textContent = 'Ошибка сети.  Попробуйте позже или напишите на почту.';
       });
     });
   }
