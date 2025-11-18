@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
     navToggle.addEventListener('click', function(){ navList.classList.toggle('show'); });
   }
 
-  // smooth scroll
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var href = a.getAttribute('href');
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  // form submit
+  // Form submit
   var form = document.getElementById('leadForm');
   var msg = document.getElementById('formMsg');
   if(form){
