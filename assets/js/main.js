@@ -1,4 +1,3 @@
-// nav toggle
 document.addEventListener('DOMContentLoaded', function(){
   var navToggle = document.getElementById('navToggle');
   var navList = document.getElementById('navList');
@@ -6,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
     navToggle.addEventListener('click', function(){ navList.classList.toggle('show'); });
   }
 
-  // smooth scroll for internal links
+  // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var href = a.getAttribute('href');
@@ -14,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function(){
         e.preventDefault();
         var el = document.querySelector(href);
         if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-        if(navList.classList && navList.classList.contains('show')) navList.classList.remove('show');
+        if(navList.classList.contains('show')) navList.classList.remove('show');
       }
     });
   });
 
-  // form submit (AJAX) - works with Formspree
+  // form submit
   var form = document.getElementById('leadForm');
   var msg = document.getElementById('formMsg');
   if(form){
@@ -31,38 +30,20 @@ document.addEventListener('DOMContentLoaded', function(){
         body: data,
         headers: { 'Accept': 'application/json' }
       }).then(function(response){
-        if(response.ok){
-          msg.textContent = 'Спасибо! Ваша заявка отправлена.';
-          form.reset();
-        } else {
-          response.json().then(function(err){
-            msg.textContent = err.error || 'Ошибка отправки. Попробуйте другой способ.';
-          }).catch(function(){
-            msg.textContent = 'Ошибка отправки формы.';
-          });
-        }
-      }).catch(function(){
-        msg.textContent = 'Ошибка сети. Попробуйте позже или напишите на почту.';
-      });
+        if(response.ok){ msg.textContent='Спасибо! Ваша заявка отправлена.'; form.reset(); }
+        else { response.json().then(err=>{ msg.textContent = err.error||'Ошибка отправки. Попробуйте другой способ.' }).catch(()=>{ msg.textContent='Ошибка отправки формы.'; }); }
+      }).catch(()=>{ msg.textContent='Ошибка сети. Попробуйте позже или напишите на почту.'; });
     });
   }
-});
 
-// Reveal on scroll (gentle) — no gears, no parallax
-(function(){
+  // Reveal on scroll
+  var rElems = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
-    var rElems = document.querySelectorAll('.reveal');
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
       });
-    }, {rootMargin:'0px 0px -8% 0px', threshold: 0.06});
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
     rElems.forEach(function(el){ io.observe(el); });
-  } else {
-    // fallback — show immediately
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
-  }
-})();
+  } else { rElems.forEach(el=>el.classList.add('visible')); }
+});
