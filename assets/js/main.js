@@ -48,32 +48,10 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 
-// --- subtle tech motion & reveal ---
+// Reveal on scroll (gentle) — no gears, no parallax
 (function(){
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  var gear1 = document.querySelector('.gear-1');
-  var gear2 = document.querySelector('.gear-2');
-  var rot1 = 0, rot2 = 0;
-  function rotateLoop(time){
-    rot1 += 0.25; // deg per frame approx
-    rot2 -= 0.35;
-    if(gear1) gear1.style.transform = 'rotate(' + rot1 + 'deg)';
-    if(gear2) gear2.style.transform = 'rotate(' + rot2 + 'deg)';
-    requestAnimationFrame(rotateLoop);
-  }
-  requestAnimationFrame(rotateLoop);
-
-  // scroll parallax
-  window.addEventListener('scroll', function(){
-    var s = window.scrollY;
-    if(gear1) gear1.style.transform = 'translateY(' + (s*0.08) + 'px) rotate(' + rot1 + 'deg)';
-    if(gear2) gear2.style.transform = 'translateY(' + (s*0.12) + 'px) rotate(' + rot2 + 'deg)';
-  }, {passive:true});
-
-  // reveal
-  var rElems = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
+    var rElems = document.querySelectorAll('.reveal');
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting){
@@ -81,9 +59,10 @@ document.addEventListener('DOMContentLoaded', function(){
           io.unobserve(e.target);
         }
       });
-    }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    }, {rootMargin:'0px 0px -8% 0px', threshold: 0.06});
     rElems.forEach(function(el){ io.observe(el); });
   } else {
-    rElems.forEach(function(el){ el.classList.add('visible'); });
+    // fallback — show immediately
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
   }
 })();
