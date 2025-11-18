@@ -1,141 +1,35 @@
-:root{
-  --accent:#af213d;
-  --accent-dark:#8f1a31;
-  --bg:#ffffff;
-  --muted:#666;
-  --wrap:1100px;
-  --radius:10px;
-  --soft-shadow: 0 8px 20px rgba(12,20,30,0.06);
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color:#111;
-}
-
-/* Базовые настройки */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--text,#111);line-height:1.45;-webkit-font-smoothing:antialiased}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
-.narrow{max-width:720px}
-img{max-width:100%;display:block}
-
-/* Header */
-.site-header{border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:50}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px}
-.logo img{height:36px}
-.nav{position:relative}
-.nav-toggle{display:none;background:transparent;border:0;font-size:20px}
-.nav-list{list-style:none;padding:0;margin:0;display:flex;gap:12px;align-items:center}
-.nav-list a{color:#222;text-decoration:none;padding:8px 10px;border-radius:8px}
-.nav-list a:hover{background:#faf0f1}
-
-/* Hero */
-.hero{padding:48px 0}
-.hero-inner{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
-.hero-text{flex:1 1 360px}
-.hero-media{flex:0 1 420px;text-align:center;position:relative}
-.hero h1{font-size:28px;margin:0 0 12px}
-.lead{margin:0 0 18px;color:#333}
-.hero-cta{display:flex;gap:12px;margin-top:10px}
-.hero-list{margin:18px 0 0;padding-left:20px;color:#333}
-.note{margin-top:12px;color:var(--muted)}
-
-/* Buttons */
-.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600;cursor:pointer}
-.btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
-.btn-primary:hover{background:var(--accent-dark)}
-.btn-outline{background:#fff;color:var(--accent);border:1px solid var(--accent)}
-
-/* Sections and cards */
-.section{padding:36px 0}
-.section.alt{background:#fafafa}
-
-/* Cards grid */
+/* Cards / Services */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
-
-/* Карточки — явные паддинги, аккуратное выравнивание, подлёт при hover */
 .card{
   background:#fff;
-  padding:18px;                 /* важный момент — достаточный отступ */
-  border-radius:var(--radius);
+  padding:16px;
+  border-radius:10px;
   border:1px solid #eee;
-  box-shadow: 0 6px 14px rgba(12,20,30,0.04);
-  transition: transform .22s ease, box-shadow .22s ease;
-  will-change: transform;
-  overflow:visible;
-  display:flex;
-  flex-direction:column;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s;
+  will-change: transform, box-shadow;
+  text-align:left; /* сохраняем выравнивание */
 }
-
-/* Заголовки и абзацы внутри карточки — гарантия выравнивания */
-.card h3{margin:0 0 8px;font-size:18px;line-height:1.25}
-.card p{margin:0;color:#333;line-height:1.45;word-break:normal}
-
-/* subtle hover lift (как было ранее) */
 .card:hover{
   transform: translateY(-6px);
   box-shadow: 0 14px 30px rgba(12,20,30,0.08);
 }
 
-/* Benefits */
-.benefits{padding-left:20px;list-style:inside;}
-
-/* Systems grid - применяем такое же поведение как карточкам */
+/* Systems */
 .systems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
 .system{
   background:#fff;
-  padding:16px;
+  padding:12px;
   border-radius:8px;
   border:1px solid #eee;
   text-align:center;
-  box-shadow: 0 6px 12px rgba(12,20,30,0.03);
-  transition: transform .22s ease, box-shadow .22s ease;
-  will-change: transform;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:64px;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s;
+  will-change: transform, box-shadow;
 }
 .system:hover{
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(12,20,30,0.06);
+  box-shadow: 0 14px 30px rgba(12,20,30,0.08);
 }
 
-/* Steps */
-.steps{padding-left:18px}
-
-/* Contact / form */
-.contact-section .form{display:flex;flex-direction:column;gap:10px;margin-top:10px}
-.contact-section input, .contact-section textarea{padding:12px;border:1px solid #ddd;border-radius:8px}
-.form-row{display:flex;gap:12px;align-items:center;margin-top:6px}
-.form-msg{color:var(--muted);margin-top:8px}
-
-/* Footer */
-.site-footer{border-top:1px solid #f0f0f0;background:#fff;padding:18px 0;margin-top:28px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.footer-contacts a{margin-left:12px;color:var(--muted);text-decoration:none}
-
-/* Reveal (gentle) */
-.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease-out, transform .6s ease-out;will-change:transform,opacity}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* Уважать reduced-motion, но не убирать маленький hover-lift полностью.
-   Если хотите — можно вернуть полное отключение движений здесь. */
-@media (prefers-reduced-motion: reduce){
-  /* Уменьшим переходы и выключим reveal-анимацию, но оставим мягкий эффект hover (можно изменить по запросу) */
-  .reveal{transition:none;transform:none;opacity:1}
-  .card{transition:none}
-  .system{transition:none}
-  /* если вы хотите полностью убрать hover-подлет, раскомментируйте следующую строку:
-  .card:hover, .system:hover { transform: none; box-shadow: 0 6px 14px rgba(12,20,30,0.04); }
-  */
-}
-
-/* Responsive */
-@media(max-width:900px){
-  .hero h1{font-size:24px}
-  .nav-toggle{display:inline-block}
-  .nav-list{position:absolute;right:0;top:56px;background:#fff;border:1px solid #eee;padding:12px;border-radius:8px;display:none;flex-direction:column;min-width:200px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-  .nav-list.show{display:flex}
-  .card:hover{ transform:none; } /* no hover on touch */
-  .system:hover{ transform:none; }
-}
+/* Reveal on scroll */
+.reveal{opacity:0; transform: translateY(10px); transition: opacity .6s ease-out, transform .6s ease-out; will-change: transform, opacity;}
+.reveal.visible{opacity:1; transform: translateY(0);}
