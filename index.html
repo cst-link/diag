@@ -1,172 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Бесплатная диагностика систем автоматизации</title>
-  <meta name="description" content="Бесплатная диагностика АСУТП, учёта и шкафов управления. Предотвратите простои и аварии.">
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="Assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <a class="logo" href="/">
-        <img src="assets/images/logo.png" alt="Логотип" />
-      </a>
-
-      <nav class="nav">
-        <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">☰</button>
-        <ul class="nav-list" id="navList">
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#why">Почему важно</a></li>
-          <li><a href="#systems">Системы</a></li>
-          <li><a href="#contact">Контакты</a></li>
-          <li><a href="https://cst.link/" target="_blank" rel="noopener">О нас</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header style="padding:28px 0; text-align:center;">
+    <h1>Бесплатная диагностика систем автоматизации и учёта</h1>
+    <p>Предотвратите аварии и простои. Узнайте, в каком состоянии находится ваша система.</p>
+    <p><a href="#contact" style="display:inline-block;padding:12px 18px;border-radius:8px;background:#0b74de;color:#fff;text-decoration:none">Записаться на диагностику</a></p>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-inner">
-        <div class="hero-text">
-          <h1>Бесплатная диагностика систем автоматизации и учёта</h1>
-          <p class="lead">Предотвратите аварии и простои. Узнайте, в каком состоянии находится ваша система — инспекция занимает 1–2 часа и проводится бесплатно.</p>
+  <section style="padding:28px 0; max-width:1100px; margin:0 auto;">
+    <h2>Что мы делаем бесплатно</h2>
+    <ul>
+      <li>Очистка и визуальный осмотр шкафов и контроллеров</li>
+      <li>Проверка и подтяжка клеммных соединений</li>
+      <li>Проверка доступности питания и связи</li>
+      <li>Снятие резервной копии программ-контроллеров</li>
+      <li>Фотофиксация состояния оборудования</li>
+      <li>Отчёт с чек-листом и рекомендациями по приоритетам</li>
+    </ul>
+    <p>Время диагностики: 1-2 часа</p>
+  </section>
 
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#contact">Записаться на диагностику</a>
-            <a class="btn btn-outline" href="https://cst.link/" target="_blank" rel="noopener">О нас</a>
-          </div>
+  <section style="padding:28px 0; max-width:1100px; margin:0 auto;">
+    <h2>Зачем это нужно вашему предприятию</h2>
+    <ul>
+      <li>Предотвращение отказов и остановки технологических процессов</li>
+      <li>Устранение скрытых неисправностей</li>
+      <li>Резервные копии ПО</li>
+      <li>Понимание текущего состояния системы и приоритетов улучшений</li>
+      <li>Экспертный взгляд со стороны</li>
+    </ul>
+  </section>
 
-          <ul class="hero-list">
-            <li>Очистка и визуальный осмотр шкафов и контроллеров</li>
-            <li>Проверка и подтяжка клеммных соединений</li>
-            <li>Снятие резервной копии программ-контроллеров</li>
-          </ul>
+  <section style="padding:28px 0; max-width:1100px; margin:0 auto;">
+    <h2>Какие системы мы обслуживаем</h2>
+    <ul>
+      <li>АСУТП, шкафы управления</li>
+      <li>Системы технического и коммерческого учёта</li>
+      <li>Промышленные контроллеры</li>
+      <li>Шкафы связи и телеметрии</li>
+    </ul>
+  </section>
 
-          <p class="note"><strong>Время диагностики:</strong> 1–2 часа</p>
-        </div>
+  <section id="contact" style="padding:28px 0; max-width:520px; margin:0 auto;">
+    <h2>Оставьте заявку</h2>
+    <form action="https://formspree.io/f/mvglolyp" method="POST">
+      <input name="name" type="text" placeholder="Имя" required style="width:100%;padding:10px;margin-bottom:8px">
+      <input name="phone" type="tel" placeholder="Телефон" required style="width:100%;padding:10px;margin-bottom:8px">
+      <input name="email" type="email" placeholder="Email" style="width:100%;padding:10px;margin-bottom:8px">
+      <textarea name="message" rows="4" placeholder="Коротко о задаче" style="width:100%;padding:10px;margin-bottom:8px"></textarea>
+      <button type="submit" style="padding:10px 16px;border-radius:8px;background:#0b74de;color:#fff;border:none">Отправить</button>
+    </form>
+  </section>
 
-        <div class="hero-media">
-          <img src="/assets/images/hero.svg" alt="Диагностика оборудования">
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT WE DO / SERVICES -->
-    <section id="services" class="section">
-      <div class="wrap">
-        <h2>Что мы делаем бесплатно</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Очистка и осмотр</h3>
-            <p>Визуальный осмотр шкафов и контроллеров, удаление пыли и мусора.</p>
-          </div>
-          <div class="card">
-            <h3>Клеммные соединения</h3>
-            <p>Проверка и подтяжка клеммных зажимов для стабильной работы.</p>
-          </div>
-          <div class="card">
-            <h3>Питание и связь</h3>
-            <p>Проверяем доступность питания и устойчивость связи.</p>
-          </div>
-          <div class="card">
-            <h3>Резервные копии</h3>
-            <p>Снятие резервной копии программ контроллеров и сохранение на носитель.</p>
-          </div>
-          <div class="card">
-            <h3>Фотофиксация</h3>
-            <p>Фиксация состояния оборудования в фотоотчёте.</p>
-          </div>
-          <div class="card">
-            <h3>Отчёт и рекомендации</h3>
-            <p>Чёткий чек-лист и приоритеты работ для устранения рисков.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section id="why" class="section alt">
-      <div class="wrap">
-        <h2>Зачем это нужно вашему предприятию</h2>
-        <ul class="benefits">
-          <li>Предотвращение отказов и остановка технологических процессов</li>
-          <li>Устранение скрытых неисправностей</li>
-          <li>Наличие актуальных резервных копий ПО</li>
-          <li>Понимание текущего состояния системы и приоритетов улучшений</li>
-          <li>Экспертный взгляд со стороны</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- SYSTEMS -->
-    <section id="systems" class="section">
-      <div class="wrap">
-        <h2>Какие системы мы обслуживаем</h2>
-        <div class="systems-grid">
-          <div class="system">АСУТП, шкафы управления</div>
-          <div class="system">Системы технического и коммерческого учёта</div>
-          <div class="system">Промышленные контроллеры</div>
-          <div class="system">Шкафы связи и телеметрии</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section alt">
-      <div class="wrap">
-        <h2>Как проходит диагностика</h2>
-        <ol class="steps">
-          <li>Вы оставляете заявку — мы согласовываем время.</li>
-          <li>Прибываем на объект, проводим осмотр, проверку питания, связи и клемм.</li>
-          <li>Снимаем резервную копию ПО, делаем фотооборудования.</li>
-          <li>Передаём отчёт с чек-листом и рекомендациями по приоритетам.</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
-      <div class="wrap narrow">
-        <h2>Записаться на бесплатную диагностику</h2>
-        <p>Оставьте контакты — мы свяжемся для согласования времени визита.</p>
-
-        <!-- Вариант 1: отправка через Formspree (оставлен ваш ID). 
-             Вариант 2: используйте mailto, если не хотите форму. -->
-        <form id="leadForm" action="https://formspree.io/f/mvglolyp" method="POST" class="form">
-          <input name="name" type="text" placeholder="Имя" required>
-          <input name="phone" type="tel" placeholder="Телефон" required>
-          <input name="email" type="email" placeholder="Email (необязательно)">
-          <textarea name="message" rows="4" placeholder="Коротко о системе/задаче"></textarea>
-          <div class="form-row">
-            <button class="btn btn-primary" type="submit">Отправить заявку</button>
-            <a class="btn btn-outline" href="mailto:info@cst.link">Написать на почту</a>
-          </div>
-          <p id="formMsg" class="form-msg" aria-live="polite"></p>
-        </form>
-
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <div class="copyright">© <span id="yr"></span> CST — Бесплатная диагностика</div>
-      <div class="footer-contacts">
-        <a href="https://cst.link/" target="_blank" rel="noopener">cst.link</a>
-        <a href="tel:+7000000000">+7 (000) 000-00-00</a>
-      </div>
-    </div>
+  <footer style="padding:28px 0; text-align:center;">
+    <a href="https://cst.link/" target="_blank" style="display:inline-block;padding:12px 18px;border-radius:8px;background:#0b74de;color:#fff;text-decoration:none">
+      О нас
+    </a>
   </footer>
 
-  <script src="/assets/js/main.js"></script>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script src="Assets/js/main.js"></script>
 </body>
 </html>
-
